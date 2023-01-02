@@ -9,12 +9,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var username: String = ""
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            TextField("Username", text: $username)
+                .padding()
+                .border(.secondary)
+                .textInputAutocapitalization(.never)
+                .disableAutocorrection(true)
+            if username.count > 0 {
+                Text("Welcome back, \(username)!")
+            }
+            
         }
         .padding()
     }
